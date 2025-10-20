@@ -1,0 +1,111 @@
+,text,embeddings,distances
+0,"Johnny, A young up-and-coming performer, Johnny is full of energy and enthusiasm. She's known for her edgy and unconventional looks, but can be a bit scatterbrained at times. She looks up to Donna as a mentor and hopes to follow in her footsteps., Musical, USA","[-0.0283522  -0.02244872  0.0080396  ... -0.01666177 -0.01037639
+ -0.00461209]",0.14765660746835396
+1,"Crystal, A quirky and imaginative performer, Crystal is always surprising audiences with her off-beat performances and unconventional looks. She's known for her unique creativity and imaginative approach, but can sometimes struggle with staying focused and on task. She's also a bit of a wildcard, and the other performers never know what to expect from her., Musical, USA","[-0.00856967 -0.01963399  0.01416646 ...  0.00963604 -0.023628
+ -0.02441646]",0.18030404159605484
+2,"Donna, A seasoned performer with a larger-than-life personality, Donna is confident and unapologetic on stage. She's known for her impeccable lip-sync skills and stunning costumes, but can sometimes come across as a diva behind the scenes. She's also a mentor to Johnny, helping her to hone her craft., Musical, USA","[-0.0256816  -0.01785532  0.00746995 ... -0.02309011  0.00199382
+ -0.00732742]",0.18411845420586104
+3,"Dolly, A bubbly and vivacious performer, Dolly is a fan favorite for her infectious personality and comedic performances. She's known for her campy looks and over-the-top antics, but can struggle with self-doubt and insecurity off stage. She's also a good friend of Johnny, often offering her words of encouragement., Musical, USA","[-0.0307691  -0.01996252  0.01735759 ... -0.00762135 -0.01243144
+ -0.00136372]",0.1925667148414758
+4,"Sable, A sultry and dramatic performer, Sable exudes confidence on stage. She's known for her fierce lip-syncing abilities and dramatic performances, but can sometimes be a bit too self-absorbed. She's also a rival of Donna, and the two often compete for the spotlight., Musical, USA","[-0.02552412 -0.01944322  0.01171813 ... -0.01971725 -0.0006912
+  0.00966941]",0.19984910537008316
+5,"James, A handsome and athletic personal trainer, James is always up for a challenge. He's looking for someone who is as passionate about fitness as he is, and who can keep up with his intense workout regimen. He can sometimes come across as a bit too competitive, but his heart is always in the right place., Reality Show, USA","[-0.02047462 -0.01632224  0.00418176 ... -0.02791756  0.01012632
+ -0.02189792]",0.20917391574575517
+6,"Karma, A chameleon-like performer, Karma is known for her ability to transform herself into any character. She's a master of illusion and is always pushing boundaries with her looks and performances, but can sometimes struggle with authenticity and staying true to herself. She's also a friend of Dolly, often offering her a listening ear when she needs it., Musical, USA","[-0.0041491  -0.02063959  0.00710449 ... -0.01037114 -0.0112247
+ -0.03293606]",0.21209096424481366
+7,"Caleb, A young African American man in his early 20s, Caleb is a talented musician who dreams of making it big in the music industry. He's charismatic, confident, and has a way with words. However, he's also struggling with addiction and is constantly at odds with his strict religious family., Movie, Texas","[ 0.00979803 -0.03147633  0.00950422 ... -0.00086787 -0.01161201
+ -0.02480805]",0.21219441993241495
+8,"Olivia, A confident and charismatic marketing executive with a heart of gold. Olivia is always the life of the party, and her infectious personality draws people to her. She's looking for someone who can keep up with her high energy and bring some stability to her life., Reality Show, USA","[-0.00535413 -0.01928923 -0.00535087 ... -0.00013061 -0.00334429
+ -0.02059432]",0.21645618881629702
+9,"Francesca, A fiery and passionate young woman who works as a blacksmith. She is strong-willed and independent, and her singing voice is bold and powerful. Francesca has caught the eye of Prince Lorenzo, but she is hesitant to give her heart to a man who comes from such a different world., Opera, Italy","[-1.26603339e-02 -2.45954040e-02 -2.81517487e-03 ...  2.81962827e-02
+  5.83015535e-05 -1.21768238e-02]",0.22315061862802377
+10,"Vixen, A fierce and competitive performer, Vixen is always out to win. She's known for her aggressive lip-syncing style and high-energy performances, but can be confrontational and difficult to work with. She's also a rival of Sable, and the two often clash both on and off stage., Musical, USA","[-0.03398788 -0.02679814  0.00610801 ... -0.02943874 -0.00984995
+  0.00667666]",0.224163487342959
+11,"Captain James, The charismatic and dashing captain of the local militia. Captain James is a ladies' man and enjoys flirting with the women of the town. He has a friendly rivalry with Reverend Brown and often teases him about his piousness., Sitcom, USA","[-0.00730619 -0.02028189  0.00340105 ... -0.00268581 -0.01322447
+ -0.0026809 ]",0.22579956508603094
+12,"Sophia, A fun-loving and adventurous travel blogger, Sophia is always looking for her next big adventure. She's looking for someone who can join her on her travels and share in her love of exploration. She's a free spirit who isn't afraid to take risks and try new things., Reality Show, USA","[ 0.01523106 -0.01989092 -0.00136051 ... -0.0021868  -0.00136634
+ -0.02367206]",0.22610653046404594
+13,"Marcus, A charming and successful entrepreneur, Marcus is used to getting what he wants. He's a smooth talker with a magnetic personality, but can sometimes come across as a bit too self-centered. He's looking for someone who can challenge him and keep him on his toes., Reality Show, USA","[-0.01149289 -0.04351728  0.0157285  ... -0.02326287 -0.00942786
+ -0.00538688]",0.2284206656617861
+14,"Chloe, A driven and ambitious attorney, Chloe is always striving for success. She's looking for someone who can match her intellect and drive, and who is supportive of her career goals. She's a bit guarded when it comes to matters of the heart, but is ready to let her guard down for the right person., Reality Show, USA","[-0.00668325 -0.01537938  0.01953668 ... -0.01053797 -0.00843958
+ -0.0075976 ]",0.23169154757465116
+15,"Prince Lorenzo, A charming and handsome prince who has recently returned from a long journey abroad. Prince Lorenzo is well-traveled and cultured, and his voice is smooth and velvety. He is searching for true love and has his sights set on a particular young woman., Opera, Italy","[-0.00359069 -0.01737495  0.0199993  ...  0.01128596 -0.0020943
+ -0.01255289]",0.23244174523917183
+16,"Don Carlo, A charming and charismatic young man who is often the life of the party. Don Carlo is quick-witted and clever, and his singing voice is playful and light. He is friends with Baron Gustavo, but his loyalty is often called into question. He is not above causing mischief and stirring up trouble for his own amusement., Opera, Italy","[-0.0075538  -0.00947503  0.03532975 ...  0.00250646 -0.01754685
+ -0.010734  ]",0.23280020296155068
+17,"Sarah, A woman in her mid-20s, Sarah is a free-spirited artist and Jack's employee. She's creative, unconventional, and passionate about her work. However, she can also be flighty and impulsive at times., Play, England","[-0.01621926 -0.02247911 -0.00822484 ...  0.01155959 -0.00407402
+ -0.01202683]",0.23356705498614538
+18,"Noah, A quirky and creative graphic designer, Noah is always pushing the boundaries with his art. He's looking for someone who can appreciate his unique perspective and isn't afraid to be a little unconventional. He's a bit of a romantic at heart, and loves nothing more than creating grand gestures of love for the people he cares about., Reality Show, USA","[-0.0188557  -0.02116132 -0.00344849 ... -0.00438928  0.01624532
+ -0.0237717 ]",0.23609065669693186
+19,"George, A man in his early 30s, George is a charming and charismatic businessman who is in a relationship with Emily. He's ambitious, confident, and always looking for the next big opportunity. However, he's also prone to bending the rules to get what he wants., Play, England","[-0.01992013 -0.01432576  0.00073769 ... -0.01624719 -0.00060984
+ -0.01035873]",0.23632535188614767
+20,"Sonya, A white woman in her late 20s, Sonya is a free-spirited journalist who's always on the hunt for the next big story. She's passionate, tenacious, and unafraid to speak her mind. However, she's also struggling to balance her career with her personal life, and has a tendency to push people away., Movie, Texas","[ 0.00674221 -0.0322431  -0.03663398 ... -0.00082532 -0.00564774
+ -0.02460453]",0.2381091324578679
+21,"Will, A white man in his early 40s, Will is a successful businessman who's come back to his hometown after many years away. He's confident, charming, and knows how to get what he wants. However, he's also hiding a dark secret from his past that threatens to destroy everything he's worked for., Movie, Texas","[ 0.00050819 -0.04393288 -0.00471644 ... -0.01291297 -0.01229807
+ -0.02415131]",0.23907633096770542
+22,"Emily, A young woman in her early 20s, Emily is an aspiring actress and Alice's daughter. She has a bubbly personality and a quick wit, but struggles with self-doubt and insecurity. She's also in a relationship with George., Play, England","[-0.01386291 -0.01593789  0.0003636  ...  0.0013995  -0.00330024
+ -0.02726755]",0.24006734034893018
+23,"Maya, A kind and compassionate nurse with a heart of gold, Maya is always putting others before herself. She's looking for someone who shares her values and is committed to making the world a better place. She's not afraid to speak her mind and stand up for what she believes in., Reality Show, USA","[-0.02729462 -0.02436737 -0.01288253 ... -0.01093762 -0.01740526
+ -0.00591383]",0.2430336533943932
+24,"Jake, A laid-back and easygoing firefighter, Jake is the quintessential good guy. He's looking for someone who shares his values of honesty and integrity, and who is looking for a stable and committed relationship. He's a bit of a hopeless romantic, and is always looking for ways to sweep his partner off their feet., Reality Show, USA","[-0.01444392 -0.02301345  0.01474483 ... -0.00219962 -0.01991272
+ -0.01643257]",0.24329191259522331
+25,"Signora Rosa, A mysterious and alluring woman who runs a local apothecary. Signora Rosa is known for her beauty and her magical remedies, which some believe have mystical powers. Her singing voice is hauntingly beautiful and her demeanor is both captivating and enigmatic., Opera, Italy","[ 0.00742694 -0.00863478  0.00973983 ...  0.00250884 -0.00974625
+ -0.00491489]",0.24605065055953879
+26,"Baron Gustavo, A wealthy and arrogant nobleman who loves to flaunt his wealth and status. Baron Gustavo is competitive and ruthless, and his singing voice is powerful and commanding. He is not above using his influence and resources to get what he wants, regardless of who he hurts in the process., Opera, Italy","[-0.01970537 -0.02047227  0.01510399 ... -0.022539    0.01267331
+ -0.00139569]",0.247443626417563
+27,"Thomas, A good-natured and affable young man who also works in the same tavern as Abigail. Thomas is the jester of the group and enjoys making jokes and lightening the mood. He often finds himself caught up in Abigail's schemes., Sitcom, USA","[-0.01116427 -0.01238899 -0.00112158 ... -0.01602446 -0.01990489
+ -0.00698089]",0.24789314258870465
+28,"Abigail, A plucky and resourceful young woman who works as a maid in one of the taverns in colonial Williamsburg. Abigail is hard-working and determined, and dreams of one day owning her own business. She has a friendly rivalry with her co-worker, Thomas., Sitcom, USA","[-0.02905096 -0.02399298 -0.02128242 ... -0.01221697 -0.01881828
+ -0.00100997]",0.24868099485421002
+29,"John, A man in his 60s, John is a retired professor and Tom's father. He has a dry wit and a love of intellectual debate, but can also be stubborn and set in his ways., Play, England","[ 0.0209048  -0.01284962 -0.0179405  ... -0.00490722 -0.00633459
+ -0.01053618]",0.2507740096828721
+30,"Manuel, A middle-aged Hispanic man in his 50s, Manuel is a proud and hard-working farmer who's struggling to keep his family's farm afloat. He's fiercely loyal to his family and his community, and will do whatever it takes to protect them., Movie, Texas","[-0.00797768 -0.02431483 -0.00739187 ...  0.00028571 -0.00372884
+ -0.00432125]",0.2515851663236043
+31,"Mia, A young Australian woman in her mid-20s, Mia is a driven and ambitious lawyer who's just landed her dream job at a top law firm in Sydney. She's the younger sister of Max, a former soldier who's struggling with PTSD, and is trying to help him navigate his challenges while also balancing her demanding career., Limited Series, Australia","[-0.01023336 -0.0227987   0.01556825 ... -0.00943215 -0.02733238
+ -0.01840832]",0.25402803169433397
+32,"Maria, A middle-aged Latina woman in her 40s, Maria is a hard-working single mother who owns a small family-run diner in a small Texas town. She's fiercely protective of her teenage daughter, Sofia, and is always trying to balance work and family., Movie, Texas","[-0.00407746 -0.01339783 -0.01353649 ... -0.00471796 -0.02595045
+ -0.01071034]",0.2552329290688641
+33,"Tyler, A white man in his mid-30s, Tyler is a tough-as-nails sheriff who takes his job very seriously. He's stoic, no-nonsense, and has a strong sense of justice. However, he's also struggling to come to terms with a recent tragedy in his personal life., Movie, Texas","[ 0.01537842 -0.04762595 -0.01400239 ... -0.00463455 -0.01097639
+ -0.01495796]",0.25787131257237805
+34,"Tom, A man in his 50s, Tom is a retired soldier and John's son. He has a no-nonsense approach to life, but is haunted by his experiences in combat and struggles with PTSD. He's also in a relationship with Rachel., Play, England","[ 0.01995914 -0.01796065  0.00171806 ...  0.00897388 -0.01383473
+ -0.01172664]",0.2581891516361676
+35,"Jack, A middle-aged man in his 40s, Jack is a successful businessman and Sarah's boss. He has a no-nonsense attitude, but is fiercely loyal to his friends and family. He's married to Alice., Play, England","[ 0.0085431  -0.02116181  0.00370332 ... -0.0062669  -0.00612321
+ -0.00310079]",0.2591736929977949
+36,"Max, A white Australian man in his late 20s, Max is a former soldier who's struggling to adjust to civilian life after serving in Afghanistan. He's tough, no-nonsense, and has a strong sense of duty. He's the older brother of Mia, and they've always been close. He's also Ava's godson, and she's always been like a second mother to him., Limited Series, Australia","[ 0.005104   -0.03964653 -0.01867733 ... -0.01800558 -0.01227594
+ -0.01348772]",0.2613957267950058
+37,"Lucas, A middle-aged Australian man in his 40s, Lucas is a successful businessman and the CEO of a major tech company. He's charming, charismatic, and has a way with people. He's been married to Ava, a successful fashion designer, for many years, but their marriage is on the rocks due to his infidelity., Limited Series, Australia","[ 0.00470975 -0.01740489 -0.00737915 ...  0.00670121 -0.0097324
+ -0.02039045]",0.26204764967117977
+38,"Reverend Brown, The pious and stern minister of the local church. Reverend Brown takes his role very seriously and often clashes with the more irreverent characters in the town. He is also secretly in love with Abigail and tries to win her over with his piety., Sitcom, USA","[ 0.00640789 -0.03273151  0.00078737 ...  0.00212101 -0.02963009
+ -0.00526729]",0.26216665283753915
+39,"Viola, A plucky and resourceful young woman who is shipwrecked on the coast of Illyria. Viola disguises herself as a man, taking on the identity of Cesario, and becomes a servant in Duke Orsino's household. She develops feelings for the Duke, but is unable to reveal her true identity., Play, Ancient Greece","[-0.00911539 -0.04505569  0.00456723 ...  0.00877849 -0.01708658
+  0.00064321]",0.2651856075253285
+40,"Feste, A jester and musician who works in Lady Olivia's household. Feste is the wisest character in the play, and uses his wit and intelligence to comment on the actions of the other characters. He is also a confidant to Viola, and helps her navigate her complicated situation., Play, Ancient Greece","[-0.0070575  -0.0254781  -0.00631686 ... -0.01472068 -0.00285559
+ -0.02512259]",0.26564424505444195
+41,"Tahlia, A young Indigenous Australian woman in her early 20s, Tahlia is a talented artist who's just been accepted into a prestigious art school. She's the niece of Mia and Max, and they've been like siblings since they were young. She's struggling to find her place in the world as an Indigenous woman, but Mia and Max are always there to support her., Limited Series, Australia","[-0.01543055 -0.01280064  0.00093452 ...  0.0156244  -0.01716229
+ -0.0201476 ]",0.26735378154567047
+42,"Malvolio, A pompous and self-righteous steward in Lady Olivia's household. Malvolio is humorless and uptight, and is often the target of Sir Toby Belch's pranks. He is secretly in love with Lady Olivia and harbors dreams of marrying her., Play, Ancient Greece","[-0.01182845 -0.03402865 -0.00488158 ...  0.01876237  0.00500783
+ -0.02312601]",0.26806678867687417
+43,"Duke Orsino, A pompous and self-important nobleman who is hopelessly in love with Lady Olivia. Duke Orsino is arrogant and condescending to those around him, but is also a bit of a buffoon. He is related to Sir Toby Belch, who is his uncle., Play, Ancient Greece","[-0.00941636 -0.0440793  -0.00601459 ...  0.00091592  0.01896049
+ -0.00450695]",0.2698049889645504
+44,"Mrs. Mercer, The matriarch of the wealthiest family in Williamsburg. Mrs. Mercer is a bit of a snob and enjoys reminding everyone of her social standing. She often hires Abigail to work in her home and is very demanding., Sitcom, USA","[-0.02109382 -0.01492733 -0.00975817 ... -0.0154097  -0.0214719
+  0.01289357]",0.27100153446333
+45,"Alice, A woman in her late 30s, Alice is a warm and nurturing mother of two, including Emily. She's kind-hearted and empathetic, but can be overly protective of her children and prone to worrying. She's married to Jack., Play, England","[ 0.00663244 -0.01238186 -0.01036259 ... -0.00575266  0.00267181
+ -0.01698529]",0.27175547159866775
+46,"Mr. Mercer, The bumbling and absent-minded patriarch of the Mercer family. Mr. Mercer is often clueless about what is going on around him and relies on his wife to keep him in line. He has a secret love of practical jokes and often finds himself in trouble because of them., Sitcom, USA","[-1.33718271e-02 -1.72639154e-02  3.57095874e-03 ... -4.59536165e-03
+ -1.18175615e-02  2.11368369e-05]",0.2718490704914863
+47,"Antonio, A sea captain who rescues Sebastian from the shipwreck. Antonio becomes devoted to Sebastian and follows him to Illyria, despite the danger it poses to himself., Play, Ancient Greece","[-0.00392372 -0.04301077  0.00278937 ... -0.00743614 -0.02500474
+  0.00268654]",0.27458537225283275
+48,"Rachel, A woman in her late 20s, Rachel is a shy and introverted librarian who is in a relationship with Tom. She's intelligent, thoughtful, and has a deep love of books. However, she struggles with social anxiety and often feels like an outsider., Play, England","[-0.00300528 -0.01200842  0.01354438 ...  0.01147528 -0.03262329
+ -0.02792656]",0.2748757444686397
+49,"Sir Andrew Aguecheek, A dim-witted and gullible nobleman who is brought to Illyria by Sir Toby Belch as a potential suitor for Lady Olivia. Sir Andrew Aguecheek is a perennial bachelor and is easily manipulated by those around him., Play, Ancient Greece","[-0.02339789 -0.02889314  0.00194651 ... -0.01138776  0.00620699
+ -0.01035492]",0.27522249419686207
+50,"Sebastian, Viola's twin brother, who is also shipwrecked on the coast of Illyria. Sebastian is rescued by Antonio and becomes embroiled in a series of misunderstandings and mistaken identities. He develops feelings for Lady Olivia, much to the chagrin of Duke Orsino., Play, Ancient Greece","[-0.01072616 -0.04431596  0.00921859 ... -0.00286116 -0.02621237
+ -0.00722989]",0.27543060986376033
+51,"Ava, A middle-aged Australian woman in her 50s, Ava is a successful fashion designer who's built an empire on her impeccable taste and attention to detail. She's elegant, sophisticated, and always knows what's in style. She's married to Lucas, but their marriage is strained due to his infidelity. She's also been a mentor to Tahlia, and has helped her navigate the art world., Limited Series, Australia","[ 0.0030612  -0.00643714 -0.01363627 ...  0.02221029 -0.00868666
+ -0.02062005]",0.27877935306381696
+52,"Sir Toby Belch, A drunken and lecherous knight who loves nothing more than drinking, carousing, and making mischief. Sir Toby Belch is related to Duke Orsino and Lady Olivia, and uses this connection to his advantage., Play, Ancient Greece","[ 0.00084023 -0.03333028 -0.00636357 ...  0.00319605  0.01031108
+ -0.00103047]",0.2790082404220585
+53,"Lady Olivia, A wealthy and beautiful noblewoman who has recently become a widow. Lady Olivia is melancholy and withdrawn, and refuses to entertain any suitors. She is the object of Duke Orsino's affections, but is not interested in him. She is also the cousin of Sir Toby Belch and his niece., Play, Ancient Greece","[-0.01654791 -0.02507456 -0.00279416 ...  0.00135578  0.00537127
+ -0.01264743]",0.2830760677356339
+54,"Bianca, Lady Olivia's cunning and quick-witted maid. Bianca is a master of mischief and pranks, and often collaborates with Sir Toby Belch to torment Malvolio. She is also secretly in love with Sir Toby., Play, Ancient Greece","[-0.01105026 -0.02725004 -0.00531324 ...  0.01389469 -0.00634058
+ -0.02143276]",0.2896421754167344

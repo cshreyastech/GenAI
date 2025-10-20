@@ -1,0 +1,249 @@
+03-LLMs
+---------
+3.1.2 Lesson Overview
+- How LLMs Work
+    - LLM Types
+    - LLM Intelligence
+    - What is a prompt?
+    - Open vs Closed Models
+    
+- How to Use LLMs
+    - Inference Settings
+    - Conversation History
+    - Vicious and Virtuous Cycles
+    - Using your intuition
+
+3.1.4: Encoder vs Decoder
+Encoder-Decoder Model(T5): Text to Text Transer Transformer
+Encoder-Only Model: Uses only 15% of tokens in the dataset
+Decoder-Only Model: Uses auto regressor, Uses 100% of the tokens in dataset
+
+3.1.5 Completion vs. Instruction following Models
+Decoder: Generative model
+Document Completion
+
+3.1.8
+Greedy decoding
+
+https://platform.openai.com/
+https://chatgpt.com/
+
+3.1.11: What is a Prompt?
+P(Y|X, theta)
+X:
+    - User Prompt
+    - Features
+Y:
+    - LLM Response
+    - Label / Prediction
+theta:
+    - LLM Weights
+    - Model Weights
+
+
+Language fluency conditioned on the user prompt: Providing detail prompt
+
+Auto-regesressive model
+- Virtuous Feedback Loop
+    - Chain of thoughts prompting: Where the LLM can provide inference time context for answering the user query.
+- Vicious Feedback loop
+    - Whereas LLM-generated repetions, such as the repeating of a token or phrase, serves as an example of a vicious feedback loop.
+
+3.1.14 Prompt Design Vs. Prompt Engineering
+Triggering
+
+3.1.15 Vocareu OpenAI Key
+OpenAI Python Package Version 0
+import openai
+https://platform.openai.com/account/api-keys
+openai.api_base = "https://openai.vocareum.com/v1"
+openai.api_key = "voc-00000000000000000000000000000000abcd.12345678"
+----
+OpenAI Python Package Version 1
+from openai import OpenAI
+client = OpenAI(
+    base_url = "https://openai.vocareum.com/v1",
+    api_key = "voc-00000000000000000000000000000000abcd.12345678"
+)
+----
+If using curl or another client to access the OpenAI API, build the URLs using
+https://openai.vocareum.com/v1 in place of https://api.openai.com/v1
+
+3.2.2 : Lesson Overview
+- Intro to NLP: Introdution to different NLP tasks and applications and the challenges in working with language data
+- Encoding Text Data: How to encode text data using tokenization and dmbeddings
+- Text Generation: Techniques for the NLP task of text generation using recurrent Neural Network
+
+3.2.8: Encoding Text data
+- Tokenization breaks text into chunks called "tokens" and encodes these as numerical representation
+- Embedding encode context into a vector representation.
+
+3.2.9: Normalization and Pretokenization
+Steps for Tokenization
+- Normalization: Cleans the text for consistency
+- Pretokenization: Break into smaller pieces
+- Tokenization
+- Postprocessing
+
+3.2.15 NLP Models and Handling Sequences
+    - Sequence to single value
+    - Sequence to Sequence
+    - Encoder-Decoder
+
+3.2.17 Autoregressive Models
+Generates one token at at time after the input is given. It takes the input to build context about the input before generating a token, then it takes in the newly generated token as input to add to its context before generating a second new token. This process repeats a number of times until a special of end of sequence token is generated.
+
+Autoregressive models are able to make arbitrarily long sequences by feeding in previously generated tokens to add to the context. The context will hold not just what the latest token was, but also tries to keep track of previous tokens. The model generates the next token by randomly choosing from a set of tokens, each weighted by how likely that model thinks the next token will be that one. The tokens weights are referred to as probabilities, and the process of choosing a token is called sampling.
+
+Token weight -> probabilities
+Choosing tokens -> Sampling
+
+3.2.18 Sampling methods for tokens
+    - Temperature: 
+        - Adjust ramdomness for next token
+        - increases or decrease creativity
+        - Low Temperature
+            - Decreases randomness
+                - Most likely tokens chosen more often
+            - Verly low temperatures
+                - Most likely token always chosen
+                - Deterministic models
+        - High temperature
+            - Increases randomness
+                - Low probability tokens now more likely
+            - Very high temperatures
+        - Chance unlikely token chosen even with low temperatures
+    - Top-k Sampling
+        - Restrict set of tokens to choose
+        - Setting k to 1
+            - Most likely token always chosen
+    - Adjusting Token sampling
+        - Top-k and temperatue will have similar effects
+        - Best when used together
+            - Temperature: adjusts creativeity of chosen token
+            - Top-K: limits how creative oputput can be
+    - Nucleus / top-p sampling
+    - Beam search
+                - More "creative" and "novel" text
+
+03_03 Transformer and Attention Mechanism
+------------
+
+03.03.03 Attention and RNNs
+- RNNs
+    - Vanishing gradient problems
+    - Does not take advantage of GPUs as they are serially calculated
+    - LSTM
+- Embedding from Language Models (ELMo)
+    - Bidirectional LSTM
+    - Contextualized embeddings
+    - Same limitations as LSTM
+- Attention solving Sequential dependence
+
+03.03.04 Attention Scores
+- Multiplicative Attention
+    - Attention(Q, K, V) = softmax(QK^T)V
+    - AKA dot product attention, Luong attention
+    - Most common in transformers(BERT, GPT)
+    - Fast and space-efficient
+        - As dimention of Q, K, V are the same 
+- Additive Attention
+    - Attention(Q, K, V) = softmax(W2tanh(QW1 + (KW3)'))V
+    - AKA Bahdahau attention
+    - Flexible query, key dimensions
+    - Valuable for neural machine tranlation (NMT)
+        - Alignment: mapping words in input sequence to workes in output sequence
+- General Attention
+    - GeneralAttention(Q, K, V) = softmax(QWgK^T )V
+    - Flexible query, key dimensions
+    - More efficient than additive attention
+        - Better speed and space efficieny
+    - Less efficient than multiplicative attention
+
+03.03.06 Attention Mechanisms
+    - Self-Attention
+        - Query = Key = Value
+        - O(n)^2
+    - Multi-Head Attention
+        - Splits attention to multiple heads
+            - Embedding dimension divided among heads
+        - Each has own set of weights
+    - Multi-Query Attention
+        - Similar to multi-head, but each query is distinct and shares the same key and value
+    - Cross-Attention
+
+03.03.07 Visualilzing Bias in Attention Mechanisms
+https://github.com/jessevig/bertviz?tab=readme-ov-file#self-attention-models-bert-gpt-2-etc
+
+03.03.11 Training Transformer-Based Models
+- Pre-Training Objectives
+    - Autoregressive(AR): predict next token prediction, e.g. GPT
+    - Denoising autoencoder: corruption pretext task, e.g BERT
+    - Contrastive e.g SentenceBERT, image <--> text CLIP
+        - Constructs(positive, negative) pairs
+        - Key component of DALL-E for image generation
+- GPT: Decoder Transformers
+
+03.03.14 Pros and Cons of Transformers
+                        
+                          Transformers   RNNs/LSTMs
+Training parallelism      Yes            No
+Long range memory         Yes            Vanishing gradients
+Input type flexibility    Yes            Sequence only
+Interpretability          Yes            No
+Computation Complexity    Quadratic      Linear
+Token length limit        4K - 200K      Way higher
+
+3.4 Retrieval Augmented Generation
+----------------------------------
+3.4.19 How much context to Provide
+Tokens in OpenAI: https://platform.openai.com/tokenizer
+
+3.5 Build Custom Dataset for LLMs
+----------------------------------
+3.5.2 Lesson Overview
+- Open Domain vs. Narrow Domain
+    - Zero shot question answering
+    - Open domain
+        - Wolo[eoda
+    - Narrow domain
+        - Law, or other specialized data
+
+3.5.3 Collcting data
+- Internet data
+    - API
+        - json, xml
+    - Scraping
+        - http request
+        - costly
+        - Legal and ethical consideration
+            - Licensing
+        - Not safe
+            - data "toxicity
+            
+3.5.9 Evaluating Data Quality
+- The text Syntax and Semantics normal for the task (Gramatically correct)
+- The text is relavent for the task
+
+3.5.12 Review: Language Modeling Tasks
+- Text generation
+    - Masked Language modeling
+    - Causal language moduling
+         - Abstractive summarization
+         - Question answering
+             - Extrative Quenstion answering
+             - Abstractive Quenstion answering
+    - Clasification
+        - Translation
+    - Clustering
+- Models and Tasks
+    - Autoregressive(decoder-only) - GPT
+        - Insttictopm-based text generation
+        - Summarization
+        - Abstractive question answering
+    - Autoencoding (encoder-only) - BERT
+        - Classification
+        - Extractive question answering
+        - Clustering
+    - Sequence-to_sequnce(encoder-decoder) -TS
+        - Translation
