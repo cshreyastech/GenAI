@@ -247,3 +247,58 @@ Tokens in OpenAI: https://platform.openai.com/tokenizer
         - Clustering
     - Sequence-to_sequnce(encoder-decoder) -TS
         - Translation
+
+
+4 Computer Vision and Generative AI
+------------------------------------
+4.1 Introduction to Image Generation
+4.1.5 Compute Vision Gen-AI Models
+    - Unconditioned: Unlabled or no label
+    - Conditioned Generative Model: Based on prompt
+        - Text to Image
+        - BLIP: Image to Text
+        - Text to Video
+        - Multi-modal (text, images, audio)
+        - LLaVA: Large Language amd Vision Assistant
+ - Generate 2D image
+ - Generate 3D asset based on 2D image
+ 
+ 4.5 Diffusion Moidels
+
+4.5.1 Diffusion Moidels
+ - Two phases (Unconditioning: i.e it can generate any image)
+     - Forward phase
+         - Start with image -> gradually add noise until there is only noise
+     - Backward phase
+         - Start with noise -> gradully filter it unil there is only image
+- Denoising Diffusion Probabilistic Models (DDPM)
+
+4.5.2 Conditioning
+    - Conditioning the model the generate something specific
+    - Text conditioning
+    - Embeddings from Language models
+    - Classifier free guidance
+    - gamma: Classifier - Free guidance scale
+
+4.5.4 Latent Diffusion Models
+    - Autoencoders: embeddings for images also called latent vectors
+    - Encoder: Takes the input image and summarizes its content in a vector
+    - Image embedding: The inner representation is called image embedding or latent Vector
+    - Decoder: Takes the same vector and expands it back to the image
+    Latent diffustion Models training (refer to screen shot) is done as size of the latent is less than the size of the image.
+    
+4.5.4 Diffusion Models: Pros and Cons
+    - Pros
+        - Generate images with great diversity
+        - Great sample quality
+        - Easy to contidion
+            - text to image
+            - image to text
+    - Cons
+        - Slow
+
+4.5.7 DDPM implementation
+    - Noise schedule: Diffusion
+4.5.7.b DDPM implementation
+    - Temporal Embedding
+        - Positional encodings for 4 time steps
