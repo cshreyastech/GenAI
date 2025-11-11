@@ -276,7 +276,7 @@ Tokens in OpenAI: https://platform.openai.com/tokenizer
  - Generate 2D image
  - Generate 3D asset based on 2D image
  
- 4.5 Diffusion Moidels
+4.5 Diffusion Moidels
 
 4.5.1 Diffusion Moidels
  - Two phases (Unconditioning: i.e it can generate any image)
@@ -323,7 +323,7 @@ Tokens in OpenAI: https://platform.openai.com/tokenizer
 05.01.11 Generative AI Solution Components
 
 User Inerface -> Application Logic -> Functional LangChain SDKs / LLMs Image Models -> Database Vecor DB -> APIs External Applications
-- User interface: users interact with teh application. Its the bridge beween users and AI models.
+- User interface: users interact with the application. Its the bridge beween users and AI models.
 - Application Logic: Its the controller of the application. It processes user inputs, interacts with AI models, as well as parsing and manageing the flow of data.
 - Database: store user information and AI responses or be used alongside OpenAI functions or LangChain tools, or you can use them to fetch data to augment in RAG solutions. This can also be a vector databases in your app for semantic search solutions.
 - APIs: Connect our application with external service and platforms.
