@@ -1,0 +1,94 @@
+{
+  "listings": [
+    {
+      "neighborhood": "Willow Creek",
+      "price": "$650,000",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "house_size": "2,500 sqft",
+      "description": "Discover this stunning 4-bedroom, 3-bathroom home in Willow Creek. Featuring an expansive open floor plan, the living area flows seamlessly into a gourmet kitchen equipped with stainless steel appliances and granite countertops. The master suite offers a private retreat with a luxurious en-suite bathroom and walk-in closet. Enjoy outdoor entertaining on the spacious deck overlooking a beautifully landscaped yard.",
+      "neighborhood_description": "Willow Creek is known for its family-friendly atmosphere, excellent schools, and numerous parks. Residents enjoy easy access to hiking trails and community events throughout the year."
+    },
+    {
+      "neighborhood": "Maplewood",
+      "price": "$1,200,000",
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "house_size": "3,800 sqft",
+      "description": "This exquisite 5-bedroom, 4-bathroom estate in Maplewood is a true masterpiece. With high ceilings and elegant finishes, the home features a grand foyer, a formal dining room, and a spacious family room with a fireplace. The chef's kitchen is a culinary delight, complete with a large island and custom cabinetry. The outdoor space includes a pool and patio area, perfect for summer gatherings.",
+      "neighborhood_description": "Maplewood is a prestigious community with top-rated schools, upscale shopping, and fine dining. The neighborhood is known for its tree-lined streets and vibrant community spirit."
+    },
+    {
+      "neighborhood": "Sunnyvale",
+      "price": "$450,000",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "house_size": "1,100 sqft",
+      "description": "Welcome to this charming 2-bedroom, 1-bathroom bungalow in Sunnyvale. This cozy home features a bright living room, a modern kitchen with updated appliances, and a private backyard perfect for gardening or relaxing. The bedrooms are spacious and filled with natural light, making it a perfect starter home for young families or professionals.",
+      "neighborhood_description": "Sunnyvale is a vibrant community with a mix of urban and suburban living. Residents enjoy local cafes, parks, and easy access to public transportation."
+    },
+    {
+      "neighborhood": "Riverbend",
+      "price": "$850,000",
+      "bedrooms": 3,
+      "bathrooms": 2.5,
+      "house_size": "2,200 sqft",
+      "description": "Experience luxury living in this beautifully designed 3-bedroom, 2.5-bathroom home in Riverbend. The open-concept layout features a spacious living area with a fireplace, a modern kitchen with quartz countertops, and a dining area that opens to a private patio. The master suite includes a spa-like bathroom and a walk-in closet.",
+      "neighborhood_description": "Riverbend is a picturesque neighborhood with scenic views of the river. Residents enjoy outdoor activities, walking trails, and a strong sense of community."
+    },
+    {
+      "neighborhood": "Oak Hill",
+      "price": "$780,000",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "house_size": "2,700 sqft",
+      "description": "This stunning 4-bedroom, 3-bathroom home in Oak Hill boasts a contemporary design and high-end finishes. The spacious living room features large windows that fill the space with natural light. The gourmet kitchen is perfect for entertaining, with an oversized island and ample storage. The backyard is an oasis with a pool and outdoor kitchen.",
+      "neighborhood_description": "Oak Hill is known for its excellent schools and family-friendly environment. The community offers parks, recreational facilities, and easy access to shopping and dining."
+    },
+    {
+      "neighborhood": "Crestview",
+      "price": "$1,000,000",
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "house_size": "3,500 sqft",
+      "description": "Discover this luxurious 5-bedroom, 4-bathroom home in Crestview. The grand entrance leads to an expansive living area with soaring ceilings and elegant finishes. The chef's kitchen features top-of-the-line appliances and a large island. The outdoor space includes a beautifully landscaped garden and a spacious patio for entertaining.",
+      "neighborhood_description": "Crestview is a prestigious neighborhood with a strong sense of community. Residents enjoy access to top-rated schools, parks, and exclusive amenities."
+    },
+    {
+      "neighborhood": "Hilltop",
+      "price": "$550,000",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "house_size": "1,800 sqft",
+      "description": "This charming 3-bedroom, 2-bathroom home in Hilltop features an inviting open floor plan and modern updates throughout. The living room is perfect for gatherings, while the kitchen offers stainless steel appliances and a breakfast nook. The backyard is spacious and ideal for outdoor activities.",
+      "neighborhood_description": "Hilltop is a friendly community with a variety of local shops and restaurants. Residents enjoy easy access to hiking trails and community events."
+    },
+    {
+      "neighborhood": "Seaside",
+      "price": "$1,500,000",
+      "bedrooms": 4,
+      "bathrooms": 3.5,
+      "house_size": "3,200 sqft",
+      "description": "Experience coastal living in this stunning 4-bedroom, 3.5-bathroom home in Seaside. With breathtaking ocean views, this property features an open-concept layout, a gourmet kitchen, and a spacious deck perfect for sunset views. The master suite includes a private balcony and luxurious bathroom.",
+      "neighborhood_description": "Seaside is a vibrant coastal community known for its beautiful beaches, outdoor activities, and lively atmosphere. Residents enjoy a variety of dining and entertainment options."
+    },
+    {
+      "neighborhood": "Greenfield",
+      "price": "$400,000",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "house_size": "1,200 sqft",
+      "description": "Welcome to this lovely 2-bedroom, 2-bathroom condo in Greenfield. This modern unit features an open layout with a spacious living area, a well-equipped kitchen, and a private balcony. The bedrooms are generously sized, and the master suite includes an en-suite bathroom.",
+      "neighborhood_description": "Greenfield is a thriving community with parks, shopping centers, and excellent schools. Residents enjoy a suburban lifestyle with easy access to urban amenities."
+    },
+    {
+      "neighborhood": "Brookstone",
+      "price": "$950,000",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "house_size": "2,900 sqft",
+      "description": "This elegant 4-bedroom, 3-bathroom home in Brookstone offers a perfect blend of luxury and comfort. The spacious living room features a fireplace and large windows, while the gourmet kitchen is equipped with high-end appliances. The backyard is an entertainer's dream with a patio and landscaped garden.",
+      "neighborhood_description": "Brookstone is a sought-after neighborhood known for its friendly atmosphere and community events. Residents enjoy access to parks, recreational facilities, and top-rated schools."
+    }
+  ]
+}

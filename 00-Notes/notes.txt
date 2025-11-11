@@ -196,6 +196,19 @@ Token length limit        4K - 200K      Way higher
 
 3.4 Retrieval Augmented Generation
 ----------------------------------
+3.4.15 Semantic Text Search and Cosine Similarity
+    - Cosine Similarities: Similarities between two vectors
+        - Dot product / equlidian magnitude
+        - range
+            1 : Two vectors are identical
+            -1: Diamatically opposite
+            0 : Orthogonal to each other. Meaning unrelated
+    - Cosine distance: 1 - Cosine Similarity value
+        - 0 : Two vectors are identical
+        - 1 : Orthogonal to each other. Meaning unrelated
+        - 2 : Diamatically opposite
+
+
 3.4.19 How much context to Provide
 Tokens in OpenAI: https://platform.openai.com/tokenizer
 
@@ -302,3 +315,133 @@ Tokens in OpenAI: https://platform.openai.com/tokenizer
 4.5.7.b DDPM implementation
     - Temporal Embedding
         - Positional encodings for 4 time steps
+
+05.Building Generative AI Solutions
+----------------------------------
+05.01 Introcduction to Building Generative Apps
+---
+05.01.11 Generative AI Solution Components
+
+User Inerface -> Application Logic -> Functional LangChain SDKs / LLMs Image Models -> Database Vecor DB -> APIs External Applications
+- User interface: users interact with teh application. Its the bridge beween users and AI models.
+- Application Logic: Its the controller of the application. It processes user inputs, interacts with AI models, as well as parsing and manageing the flow of data.
+- Database: store user information and AI responses or be used alongside OpenAI functions or LangChain tools, or you can use them to fetch data to augment in RAG solutions. This can also be a vector databases in your app for semantic search solutions.
+- APIs: Connect our application with external service and platforms.
+
+05.02 Vector Databases
+---
+05.02.01 Introduction to Vector Databases
+    - Long term memory
+    - User query + Knowledge base(vector db) -> Context aware prompt -> Model completion -> Answer
+    - Vector search
+        - Vector distance
+            - k-near neighbor search
+    - Basic operations of vector databases
+        - Storing and managing data
+        - Querying vector databases
+    - Indexing
+        - KNN vs ANN
+        - ANN techniques
+
+05.02.04 Vector search
+    - Distance between vectors
+    - How to use the distance and find similar items
+    - Length of the vector -> dimension
+    - Vectors in same column has same number of dimensions
+    - Query vector should also have the same number of dimensions
+    - Euclidean distance
+    - KNN
+    - Cosine distance (angular distance) 
+    cos(theta) = A.B / (|A|*|B|)
+
+05.02.10 Vector search tools
+    - Vector index
+        - Light-weight libraries for fast vector search
+        - FAISS, Annoy
+        - Missing data management features of a database
+    - Traditional DBs
+        - Traditional databases with vector search
+        - Pgvector, Elastic, etc
+        - Not scallable
+        - Unoptimized
+    - Vector Databases
+        - Unstructed data management solution
+        - LanceDB, Milvus, Pinecone, etc.
+        - More complete offering
+        - Data management
+            - Filter
+            - Query
+            - Indexing
+            - Post-processing
+            - Updates
+            - Versioning
+            - Cache <- object stroage
+            - Vectors -> indexing
+            - Flexibility of queries
+                - Metadata
+                - Images
+                - Text
+                - Vector Search
+                - Keyword search
+                - SQL
+https://lancedb.com/docs/quickstart/#how-to-search-for-approximate-nearest-neighbors
+
+05.02.13 Advanced Vector Operations
+ - Computing vector distances with thousands of dimensions is expensive
+ - Approximate Nearest Neighbors(ANN) gives us a way to trade accuracy for spped
+ - There are many ANN methods
+     - Hashing
+     - Trees
+     - Partitions
+     - Graphs
+     
+05.03 Lang Chain
+---
+05.03.01 LLM Applications
+    - Chatbots
+    - Cotext generation
+    - Language translation
+    - Sentiment analysis
+    - Text summarization
+    - Question-answering system
+    - Personalized recomendations
+    - Generation of Synthetic Data
+Challenges
+    - Datasets size and location: Data can be spread across many databases and  or applications
+    - Limitations of Request: Popular LLMs only process requests between 250 - 5000 words.
+    - Context-Free: LLMs do not retain information from past interactions.
+    - OUtput: Output is not structured
+LangChain
+    - popular framework with many pre-build components
+    - Simplifies common use cases
+    - Provides abstractions that:
+        - Simplify loading data from sources
+        - Templatize LLM prompts
+        - Parse LLM output
+        - Add contextual memory to interactions
+
+05.03.02 Introduction to LLM
+    - Completion Models: These models take a string input and provide text that semantically extens the input. They are useful for tasks where the goal is to expand or complete a given text input.
+    - Chat-Oriented Models - Designed for conversations, these models can take a dialogue between a user and AI and provide semantic completions or answers. They are particularly suited for interactive applicatoins.
+
+05.03.09 Chains
+    - LangChain: Standalone component that allows for the composition of multiple components into a coherent whole. These are referred to as "chains".
+    - Chain - A Sequence of calls to various components, which can include other chains. It's a method of stitch together multiple functions and operatons to achieve desired output.
+
+05.03.16 Retrieval Augmented Generation: RAG is a technique that enhances the capabilities of LLM. TAG can integrate a company's data, like a knowledge base, with information contained in the company's own data.
+
+Here is how RAG works
+    1) User submit a query to Retrieval Model
+    2) Seach with query to knowledge BAse and relevant documents are fetched
+    3) Query + Relevant docs are passed to Pre-trained LLM
+    4) Response is provided back to the user
+    
+05.03.17 Vector Stores, Embeddings, and Retrievers
+    - Vector Store Index Creator: Integrates vector stores, embeddings, and retrievers, streamlining the process of setting up an information retrieval system.
+    - Key steps
+        - Document loading: Loading data into the system using various loader components.
+        - Document splitting - Documents are split into smaller chunks for more precise matching between user queires and data content.
+        - Embeddings Transformation - Each document chunk is transformed intoa embeddings. The embeddings are numerical representation of texzt in a high-dimensional space, where similar meanins are placed close together.
+        - Vecgtor Database Storage: Embeddings are stored in a vector database like ChromaDB, disgned for high-dimensionbal vectors and semantic search operatrions.
+        - Semantic Search - This system uses ChromaDB to perform semantic searches, finding documents based on contet and meaning.
+        - Quesion-Asnwering(QA) Chain - The system uses the output from the semantic search to contextualize and generate response to queries, utilizing semantically relevant documents from the knowledge base.
