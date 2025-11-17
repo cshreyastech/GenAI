@@ -196,6 +196,9 @@ Token length limit        4K - 200K      Way higher
 
 3.4 Retrieval Augmented Generation
 ----------------------------------
+3.4.2  Review: OpenAI and Prompt Engineering
+    - Prompt engineering / Prompt tuning: In order to use OpenAI model successfully, you need to translate your task into a text prompt that is structured in a way that the model will understand. This process is called prompt engineering or prompt turning.
+    
 3.4.15 Semantic Text Search and Cosine Similarity
     - Cosine Similarities: Similarities between two vectors
         - Dot product / equlidian magnitude
@@ -321,6 +324,11 @@ Tokens in OpenAI: https://platform.openai.com/tokenizer
 05.01 Introcduction to Building Generative Apps
 ---
 05.01.11 Generative AI Solution Components
+Lets explore the components you will working with while desiginging and building applications that leverage generate AI models.
+At the heart of the solutions is LLM for text generation or iage generation models. These models can generate text and images. Your application will be sending them prompts and receiving and processing their outuput. The user interface is where users interact with the application. Its the bridge between users and AI models. Application logic is the controller of the application. It interacts with user inputs, interacts with AI models, as well as parsing and managing the flow of data. Databases can store user information in AI responses or be used alongside OpenAI functions or LangChain tools. Or you can use them to fetch data to augment and rag solution. You might also have vector databases in your applications for semantic search solutions. AIPs connect out application with external service and platforms. They allow our solution to communicate with other AI models or fetch data from other applications. Together, these componetns from the ecosystem you will typically find in generative AI applications. 
+
+Lets see how these components fits into a complete solution.
+We'll use an example application where we'are collecting data. A user enters into a web for and usig that data to generate content. The user interacts with a web form interface. This interface could be part of a website or a web application. The data entered by the user is sent to the application logic. Then one of two things could happen. Your application logic validates parses, and formats the data into a prompt for the large languate model. Or you can use tools like OpenAI function calling or LangChain to fetch data from other systems needed and build the prompts with that data. The final prompt is sent via an API call to a LLM. The LLM API endpoint receives and processes the prompt with the model internally tokenizing the text and using vector embeddings to generate text based on its training and capabilities, and then sends that back as a response. The response from the LLM is received by the application logic or process further using tools like LangeChain. The response is parsed, processed, validated, or evaluated and then sent back to the interface for display to the user. This is where gardrails and generative AI model evaluation frameworks are used. How do we know that resonse from the model is not biased, toxic, leading propretary data, or will damage organizational reputation? There are several software libraries and products available to integrate into our applications that perform this important task. The initial input, the resulting prompt, and the corresponding response from the LLM can all be stored in a database. This historical record can be used for tracking user interactions, building history features, refining the AI model's performance, or providing audit trails.
 
 User Inerface -> Application Logic -> Functional LangChain SDKs / LLMs Image Models -> Database Vecor DB -> APIs External Applications
 - User interface: users interact with the application. Its the bridge beween users and AI models.
@@ -328,6 +336,12 @@ User Inerface -> Application Logic -> Functional LangChain SDKs / LLMs Image Mod
 - Database: store user information and AI responses or be used alongside OpenAI functions or LangChain tools, or you can use them to fetch data to augment in RAG solutions. This can also be a vector databases in your app for semantic search solutions.
 - APIs: Connect our application with external service and platforms.
 
+5.1.13: Your First Quest: Building a Health Wellness Agent
+    - ReAct Prompting: React prompting techniques uses LLMs to generate both reasoning traces and task specific actions. The reasoning aspect involes the AI agent thinking through a problem, breaking it down into smaller, manageable parts, and forming a plan or series of steps to solve it. The action component allows the agent to make decisions about interacting with texternal sources like database or the internet, to gather additional information relevant to the task. The observation step often involes delivering a final response about a task or cecording an event. These observations can be used for urther reasoning. ReAct-enabled agents actively seek out new information, update their understanding, and refin their reasoning based on observations.
+    - Thought: reasoning and planning
+    - Action: Select and perform task specific actions
+    - Observation: respone about a task or record of event
+    
 05.02 Vector Databases
 ---
 05.02.01 Introduction to Vector Databases

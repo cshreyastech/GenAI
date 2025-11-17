@@ -1,7 +1,11 @@
 # Existing Repository Requirements
 langchain==0.0.305
 openai==0.28.1
-pydantic>=1.10.12
+pip install --upgrade openai
+# pydantic>=1.10.12
+pip install pydantic==1.10.15
+pip install --upgrade --force-reinstall lancedb
+
 pytest>=7.4.0
 sentence-transformers>=2.2.0
 transformers>=4.31.0
@@ -9,6 +13,5 @@ chromadb==0.4.12
 jupyter==1.0.0
 tiktoken==0.4.0
 # pip install -U lancedb
-pandas
-pydantic
+# pandas
 # pip install -U --quiet sentence-transformers==2.5.1 transformers==4.36.0

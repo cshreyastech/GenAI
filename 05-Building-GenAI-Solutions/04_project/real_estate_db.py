@@ -1,79 +1,94 @@
+import os
 import json
-import lancedb
-from lancedb.pydantic import LanceModel
-from typing import List
+from typing import List, Optional
 
+import lancedb
+from lancedb.pydantic import LanceModel, vector
+
+# Adjust embedding dim at runtime if needed
+DEFAULT_EMBED_DIM = int(os.getenv("EMBED_DIM", 256)) #1536
 
 class RealEstateListing(LanceModel):
+    id: int
     neighborhood: str
     price: str
     bedrooms: float
     bathrooms: float
     house_size: str
     description: str
-
+    neighborhood_description: str
+    full_text: str
+    embedding: vector(1536)
 
 class RealEstateDBManager:
     def __init__(self, db_path: str, table_name: str = "real_estate_listing"):
-        """Initialize LanceDB connection and table name."""
-        self.db_path = db_path
-        self.table_name = table_name
         self.db = lancedb.connect(db_path)
+        self.table_name = table_name
         self.table = None
 
-    def create_table(self):
-        """Create or recreate the LanceDB table."""
-        self.db.drop_table(self.table_name, ignore_missing=True)
+    def create_table(self, force: bool = True):
+        if force:
+            self.db.drop_table(self.table_name, ignore_missing=True)
         self.table = self.db.create_table(self.table_name, schema=RealEstateListing)
-        print(f"✅ Table '{self.table_name}' created successfully.")
+        print(f"Created LanceDB table: {self.table_name}")
 
-    def load_listings_from_json(self, json_path: str) -> List[RealEstateListing]:
-        """Load listings from a JSON file."""
+    def make_full_text(self, raw: dict) -> str:
+        # Compose a human-readable unified text for embeddings
+        parts = [
+            f"Neighborhood: {raw.get('neighborhood','')}",
+            (f"Area: {raw.get('neighborhood_description','')}") if raw.get('neighborhood_description') else "",
+            f"Price: {raw.get('price','')}",
+            f"Bedrooms: {raw.get('bedrooms','')}, Bathrooms: {raw.get('bathrooms','')}",
+            f"Size: {raw.get('house_size','')}",
+            f"Details: {raw.get('description','')}"
+        ]
+        return ". ".join([p for p in parts if p]).strip()
+
+    def ingest_listings(self, json_path: str, embed_fn):
+        """
+        Compute embedding via embed_fn(full_text) -> list[float]
+        embed_fn is a callable that returns a list/ndarray (embedding vector)
+        """
+
         with open(json_path, 'r') as file:
             data = json.load(file)
 
-        listings = [
-            RealEstateListing(
-                neighborhood=listing['neighborhood'],
-                price=listing['price'],
-                bedrooms=listing['bedrooms'],
-                bathrooms=listing['bathrooms'],
-                house_size=listing['house_size'],
-                description=listing['description']
-            )
-            for listing in data['listings']
-        ]
-        print(f"📦 Loaded {len(listings)} listings from {json_path}.")
-        return listings
 
-    def add_listings(self, listings: List[RealEstateListing]):
-        """Add listings to the LanceDB table, creating it if missing."""
-        if not self.table:
-            print("⚠️ Table not found. Creating table automatically...")
-            self.create_table()
-        self.table.add([dict(l) for l in listings])
-        print(f"✅ Added {len(listings)} listings to the '{self.table_name}' table.")
-
-
-    def setup_from_json(self, json_path: str):
-        """Convenience method to create the table and load data in one go."""
-        self.create_table()
-        listings = self.load_listings_from_json(json_path)
-        self.add_listings(listings)
-   
-    def print_head(self):
-        """Prints the head"""
-        print(self.table.head().to_pandas())
+        docs = []
+        for i, listing in enumerate(data["listings"]):
+            full_text = self.make_full_text(listing)
+            emb = embed_fn(full_text)
+            
+            if emb is None or len(emb) != 1536:
+                raise RuntimeError(f"Invalid embedding dimension: {len(emb)}")
         
-    def drop_head(self):
-        """Drop table"""
-        self.db.drop_table(self.table_name)
-        print("Table dropped", self.table.name in self.db)
+            item = {
+                "id": i,
+                "neighborhood": listing.get("neighborhood", ""),
+                "price": listing.get("price", ""),
+                "bedrooms": listing.get("bedrooms", 0),
+                "bathrooms": listing.get("bathrooms", 0),
+                "house_size": listing.get("house_size", ""),
+                "description": listing.get("description", ""),
+                "neighborhood_description": listing.get("neighborhood_description", ""),
+                "full_text": full_text,
+                "embedding": emb,
+            }
+            docs.append(item)
 
+        # create table if missing
+        if self.table is None:
+            self.create_table(force=False)  # do not drop by default
+        # add documents
+        self.table.add(docs)
+        print(f"Ingested {len(docs)} listings")
 
-if __name__ == "__main__":
-    db_path = "../../../../data/GenAI/05_project/"
-    json_path = "real_estate_listing.json"
-
-    manager = RealEstateDBManager(db_path)
-    manager.setup_from_json(json_path)
+    def create_vector_index(self, index_type: str = "hnsw", metric: str = "cosine", **kwargs):
+        """
+        Optional: Create a vector index
+        """
+        try:
+            self.table.create_index("embedding", index_type=index_type, metric=metric, **kwargs)
+            print("Created vector index on embedding")
+        except Exception as e:
+            print("Could not create index (maybe your LanceDB version lacks this API).", e)
