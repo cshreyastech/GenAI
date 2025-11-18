@@ -4,12 +4,19 @@ from typing import List, Optional
 
 import lancedb
 from lancedb.pydantic import LanceModel, vector
+import hashlib
 
-# Adjust embedding dim at runtime if needed
-DEFAULT_EMBED_DIM = int(os.getenv("EMBED_DIM", 256)) #1536
+# DEFAULT_EMBED_DIM should be the embedding length of the model
+DEFAULT_EMBED_DIM = int(os.getenv("EMBED_DIM", 1536)) 
+
+
+
+
+def compute_listing_id(full_text: str):
+    return hashlib.md5(full_text.encode()).hexdigest()
 
 class RealEstateListing(LanceModel):
-    id: int
+    id: str  # <-- IMPORTANT: now a string!
     neighborhood: str
     price: str
     bedrooms: float
@@ -18,7 +25,7 @@ class RealEstateListing(LanceModel):
     description: str
     neighborhood_description: str
     full_text: str
-    embedding: vector(1536)
+    embedding: List[float]  # <-- VECTOR FIELD
 
 class RealEstateDBManager:
     def __init__(self, db_path: str, table_name: str = "real_estate_listing"):
@@ -26,11 +33,42 @@ class RealEstateDBManager:
         self.table_name = table_name
         self.table = None
 
-    def create_table(self, force: bool = True):
+    def create_table(self, force: bool = False):
+        """Create or load the LanceDB table."""
+        table_names = self.db.table_names()
+    
+        # If table exists and we do NOT want to force recreate → open it
+        if self.table_name in table_names and not force:
+            self.table = self.db.open_table(self.table_name)
+            print(f"Opened existing LanceDB table: {self.table_name}")
+            return
+    
+        # Otherwise recreate the table
         if force:
             self.db.drop_table(self.table_name, ignore_missing=True)
-        self.table = self.db.create_table(self.table_name, schema=RealEstateListing)
-        print(f"Created LanceDB table: {self.table_name}")
+            print(f"Dropped old table: {self.table_name}")
+    
+        # Create new table
+        self.table = self.db.create_table(
+            self.table_name,
+            schema=RealEstateListing
+        )
+        print(f"Created new LanceDB table: {self.table_name}")
+
+    def get_or_create_table(self):
+        if self.table is not None:
+            return self.table
+    
+        table_names = self.db.table_names()
+    
+        if self.table_name in table_names:
+            self.table = self.db.open_table(self.table_name)
+            print(f"Loaded existing table: {self.table_name}")
+        else:
+            self.table = self.db.create_table(self.table_name, schema=RealEstateListing)
+            print(f"Created new table: {self.table_name}")
+    
+        return self.table
 
     def make_full_text(self, raw: dict) -> str:
         # Compose a human-readable unified text for embeddings
@@ -45,25 +83,28 @@ class RealEstateDBManager:
         return ". ".join([p for p in parts if p]).strip()
 
     def ingest_listings(self, json_path: str, embed_fn):
-        """
-        Compute embedding via embed_fn(full_text) -> list[float]
-        embed_fn is a callable that returns a list/ndarray (embedding vector)
-        """
-
-        with open(json_path, 'r') as file:
-            data = json.load(file)
-
-
+        table = self.get_or_create_table()
+    
+        # Load existing IDs
+        existing_ids = set(row["id"] for row in table.to_pandas()[["id"]].to_dict("records"))
+    
+        with open(json_path, "r") as f:
+            data = json.load(f)
+    
         docs = []
-        for i, listing in enumerate(data["listings"]):
+    
+        for listing in data["listings"]:
             full_text = self.make_full_text(listing)
+            listing_id = compute_listing_id(full_text)
+    
+            # Skip if already exists
+            if listing_id in existing_ids:
+                continue
+    
             emb = embed_fn(full_text)
-            
-            if emb is None or len(emb) != 1536:
-                raise RuntimeError(f"Invalid embedding dimension: {len(emb)}")
-        
+    
             item = {
-                "id": i,
+                "id": listing_id,
                 "neighborhood": listing.get("neighborhood", ""),
                 "price": listing.get("price", ""),
                 "bedrooms": listing.get("bedrooms", 0),
@@ -75,13 +116,13 @@ class RealEstateDBManager:
                 "embedding": emb,
             }
             docs.append(item)
+    
+        if docs:
+            table.add(docs)
+            print(f"Added {len(docs)} new listings")
+        else:
+            print("No new listings to add.")
 
-        # create table if missing
-        if self.table is None:
-            self.create_table(force=False)  # do not drop by default
-        # add documents
-        self.table.add(docs)
-        print(f"Ingested {len(docs)} listings")
 
     def create_vector_index(self, index_type: str = "hnsw", metric: str = "cosine", **kwargs):
         """
@@ -92,3 +133,25 @@ class RealEstateDBManager:
             print("Created vector index on embedding")
         except Exception as e:
             print("Could not create index (maybe your LanceDB version lacks this API).", e)
+
+    def search_with_lancedb(self, query_vec, limit=5):
+        """
+        Use native LanceDB search
+        Return list of dict records with scrore
+        """
+        try:
+            res = self.table.search(query.vec).limit(limit).to_pandas()
+            return res # pandas dataframe with columns including embedding
+        except Exception as e:
+            print("LanceDB.search() not vailable of failed:", e)
+            return None
+
+    def fetch_all_embeddings(self):
+        """
+        Fallback: return list of embeddings and ids for in-memory similarity
+        """
+        df = self.table.to_pandas()
+        embeddings = df["embedding"].tolist()
+        ids = df["id"].tolist()
+
+        return ids, embeddings, df

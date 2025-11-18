@@ -2,7 +2,7 @@ import os
 import numpy as np
 from typing import Callable, List
 from openai import OpenAI
-
+from real_estate_db import DEFAULT_EMBED_DIM
 
 with open('../../../../data/GenAI/openai_key.txt', 'r') as file:
     open_api_key = file.readline().strip()
@@ -13,7 +13,7 @@ EMBED_MODEL = os.getenv("OPENAI_EMBED_MODEL", "text-embedding-3-small")
 def embed_text_openai(text: str) -> List[float]:
     resp = client.embeddings.create(model=EMBED_MODEL, input=text)
     v = resp.data[0].embedding
-    assert len(v) == 1536
+    assert len(v) == DEFAULT_EMBED_DIM
     
     return v
 
