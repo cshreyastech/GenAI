@@ -20,7 +20,7 @@ Deduplication, metadata normalization, and full-text transformation
 - JSON-safe output suitable for API integration
 
 ## 📂 Project Structure
-.
+cd ./05-Building-GenAI-Solutions/04_project/ <br>
 ├── real_estate_db.py # LanceDB manager: ingestion, indexing, search <br>
 ├── embedding_utils.py # Embedding provider via OpenAI <br>
 ├── rag_pipeline.py # Retrieval + LLM answer generation <br>
