@@ -21,9 +21,9 @@ Deduplication, metadata normalization, and full-text transformation
 
 ## 📂 Project Structure
 .
-├── real_estate_db.py        # LanceDB manager: ingestion, indexing, search
-├── embedding_utils.py       # Embedding provider via OpenAI
-├── rag_pipeline.py          # Retrieval + LLM answer generation
-├── run_pipeline.py          # End-to-end runner
-├── listings.json            # Sample real estate dataset
-└── README.md                # Documentation
+├── real_estate_db.py # LanceDB manager: ingestion, indexing, search
+├── embedding_utils.py # Embedding provider via OpenAI
+├── rag_pipeline.py # Retrieval + LLM answer generation
+├── run_pipeline.py # End-to-end runner
+├── listings.json # Sample real estate dataset
+└── README.md # Documentation
