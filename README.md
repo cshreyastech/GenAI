@@ -71,3 +71,29 @@ High-Level Pipeline
                        │
                        ▼
             Final recommendation to user
+
+## ⚙️ Installation
+1. Clone the repository
+git clone <your-repo-url>
+cd real-estate-rag
+
+2. Install dependencies
+pip install -r requirements.txt
+
+3. Add your OpenAI API key
+data/GenAI/openai_key.txt
+
+## 🏗️ How to Run the Pipeline
+This script performs:
+- Table creation (force or load existing)
+- Ingestion + embedding
+- Semantic search
+- RAG ranking + LLM answer
+python run_pipeline.py
+
+Expected terminal output:
+Created new LanceDB table: real_estate_listing
+Added 10 new listings
+Could not create index...
+Result:
+{ ... final RAG answer ... }
