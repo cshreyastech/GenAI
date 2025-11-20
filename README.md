@@ -97,3 +97,62 @@ Added 10 new listings
 Could not create index...
 Result:
 { ... final RAG answer ... }
+
+## 🔍 Query Example
+user_query = "Looking for a modern 3-bedroom with good schools near public transit under $1.5M"
+result = rag.query(user_query, k=5)
+print(result["answer"])
+
+Sample Generated Output
+Top recommendations:
+1. Oak Hill – $780,000 – excellent schools, modern layout
+2. Brookstone – $950,000 – high rated schools, spacious
+3. Sunnyvale – $450,000 – walkable & good transit access
+
+Next steps:
+- Verify school ratings
+- Visit neighborhoods and compare commute access
+
+## 🧰 Key Files Explained
+real_estate_db.py
+- Loads JSON
+- Normalizes metadata
+- Generates full_text summary per listing
+- Computes deterministic IDs with MD5
+- Stores vectors in LanceDB table using a Pydantic schema
+- Deduplicates based on ID
+- Supports native .search() or fallback cosine similarity
+
+embedding_utils.py
+- Loads OpenAI API key
+- Provides embed_text_openai()
+- Validates vector dimension
+- Returns clean Python lists
+- rag_pipeline.py
+- Converts user query into an embedding
+- Retrieves top-k matches
+- Builds a reasoning prompt
+- Calls OpenAI Chat Completions
+- Returns structured final answer
+
+run_pipeline.py
+Main orchestrator:
+- creates table
+- ingests listings
+- builds vector index
+- runs sample query
+
+## 📊 Results
+
+The system successfully:
+- Ingests 10 real-estate listings
+- Creates stable embeddings
+- Retrieves contextually relevant listings
+- Generates realistic, grounded recommendations
+- Explains reasoning and provides actionable next steps
+
+This pipeline can be extended into:
+- A real estate chatbot
+- A search API
+- A web frontend using Streamlit or Next.js
+- A production RAG backend using FastAPI
