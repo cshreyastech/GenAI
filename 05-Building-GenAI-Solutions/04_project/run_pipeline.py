@@ -1,32 +1,41 @@
+"""
+Entry point to run the ingestion + RAG query demo.
+
+Before running:
+- Ensure OPENAI_API_KEY is set in the environment or OPENAI_KEY_FILE path exists.
+- Ensure LANCE DB path points to a writeable directory.
+- Listings file used in this demo: /mnt/data/listings.json
+"""
+
 import os
 from real_estate_db import RealEstateDBManager
-from embedding_utils import get_embedder #, USE_OPENAI
+from embedding_utils import get_embedder
 from rag_pipeline import RAGEngine
 
 DB_PATH = os.getenv("LANCEDB_PATH", "../../../../data/GenAI/05_project/lancedb_store")
-json_path = "listings.json"
+JSON_PATH = os.getenv("LISTINGS_JSON", "listings.json")  # Listings file
 
 def main():
-    json_path = "listings.json"
     manager = RealEstateDBManager(DB_PATH)
+    # create_table(force=True) will drop old table.
     manager.create_table(force=True)
 
     embed_fn = get_embedder()
-    
-    # Computes embeddings and stores in LanceDB
-    manager.ingest_listings(json_path, embed_fn)
 
-    # optional: build index if supported
-    # manager.create_vector_index(index_type="hnsw", metric="cosine")
+    # Ingest (deduplicated)
+    manager.ingest_listings(JSON_PATH, embed_fn)
 
-    # RAG engine
+    # Try to create index (best-effort)
+    manager.create_vector_index(index_type="hnsw", metric="cosine")
+
+    # Run a sample RAG query
     rag = RAGEngine(manager, embed_fn)
-
-    # Query
     user_query = "Looking for a modern 3-bedroom with good schools, near public transit, under $1.5M"
     result = rag.query(user_query, k=5)
-    print("Result:")
-    print(result)
+
+    # Print JSON-safe output
+    import json
+    print(json.dumps(result, indent=2))
 
 if __name__ == "__main__":
     main()
